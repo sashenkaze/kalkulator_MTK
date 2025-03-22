@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Canggih</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-container">
+            <h2>Kalkulator</h2>
+            <div class="calculator-type">
+                <button onclick="switchCalculator('basic')" class="active" id="basicBtn">Dasar</button>
+                <button onclick="switchCalculator('sequence')" id="sequenceBtn">Barisan</button>
+            </div>
+
+            <!-- Basic Calculator -->
+            <div id="basicCalc" class="calc-section active">
+                <input type="text" id="display" readonly>
+                <div class="buttons">
+                    <button onclick="clearDisplay()">C</button>
+                    <button onclick="appendNumber('7')">7</button>
+                    <button onclick="appendNumber('8')">8</button>
+                    <button onclick="appendNumber('9')">9</button>
+                    <button onclick="appendOperator('+')">+</button>
+                    <button onclick="appendNumber('4')">4</button>
+                    <button onclick="appendNumber('5')">5</button>
+                    <button onclick="appendNumber('6')">6</button>
+                    <button onclick="appendOperator('-')">-</button>
+                    <button onclick="appendNumber('1')">1</button>
+                    <button onclick="appendNumber('2')">2</button>
+                    <button onclick="appendNumber('3')">3</button>
+                    <button onclick="appendOperator('*')">×</button>
+                    <button onclick="appendNumber('0')">0</button>
+                    <button onclick="appendNumber('.')">.</button>
+                    <button onclick="calculate()">=</button>
+                    <button onclick="appendOperator('/')">/</button>
+                </div>
+            </div>
+
+            <!-- Sequence Calculator -->
+            <div id="sequenceCalc" class="calc-section">
+                <select id="sequenceType">
+                    <option value="arithmetic">Barisan Aritmatika (Un = a + (n-1)b)</option>
+                    <option value="geometric">Barisan Geometri (Un = a × r^(n-1))</option>
+                </select>
+                <input type="number" id="firstTerm" placeholder="Suku Pertama (a)">
+                <input type="number" id="commonValue" placeholder="Beda/Rasio (b/r)">
+                <input type="number" id="nthTerm" placeholder="Suku ke-n (n)">
+                <button onclick="calculateSequence()">Hitung</button>
+                <div id="sequenceResult"></div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
